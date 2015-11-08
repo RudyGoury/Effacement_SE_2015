@@ -1,0 +1,1 @@
+Si un de ces trois éléments fait défaut, il devient possible de déterminer la clé et donc de déchiffrer le ou les messages. En effet, si la clé est utilisée deux fois, et si on connaît un des deux messages, alors on peut connaître l'autre directement en utilisant :
