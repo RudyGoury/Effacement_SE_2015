@@ -55,3 +55,5 @@ l2 = liste_dates_avec_booleens(a,b)
 #print(l1)
 print(l2)
 
+def renvoyerIndiceJournee(d) :
+    return d.hour*6+d.minute//10
