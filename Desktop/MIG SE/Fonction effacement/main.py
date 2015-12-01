@@ -1,5 +1,7 @@
+import sys
+sys.path.append("C:/Users/Rudy-/Desktop/MIG SE/Fonction effacement")
 import analyseDonnees
-import datetime
+from datetime import datetime
 import Machine_verif
 dateTest = datetime(2015,5,1)
 

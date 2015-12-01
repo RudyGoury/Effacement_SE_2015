@@ -1,3 +1,5 @@
+import sys
+sys.path.append("C:/Users/Rudy-/Desktop/MIG SE/Fonction effacement")
 import pandas
 import datetime
 from datetime import datetime

@@ -1,3 +1,5 @@
+import sys
+sys.path.append("C:/Users/Rudy-/Desktop/MIG SE/Fonction effacement")
 import Machine_verif
 import datetime_to_temperature_verif
 
