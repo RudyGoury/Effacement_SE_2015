@@ -5,6 +5,7 @@ Created on Tue Dec  1 10:41:50 2015
 @author: Pierre
 """
 
+import random as rd
 import marshal as ms
 from datetime import *
 import Matrice_exemple_affichage
@@ -41,14 +42,15 @@ def donnees_to_bytes(liste_dates,liste_temperatures,liste_matrices,liste_effacem
     liste_dates_str = []
     for date_time in liste_dates:
         liste_dates_str.append(datetime_to_str(date_time))
-    ms.dump([liste_dates_str,liste_temperatures,liste_matrices,d_init],open('file_data.dat','ab'))
+    ms.dump([liste_dates_str,liste_temperatures,liste_matrices,liste_effacement,d_init],open('file_data4.dat','wb'))
 
 def bytes_to_donnees(file_path):
     file_data = open(file_path,'rb')
-    tuple_d_t_m = ms.load(file_data)
+    liste_donees = ms.load(file_data)
+    print(len(liste_donnees))
     dates = []
-    print(tuple_d_t_m[0])
-    for date in tuple_d_t_m[0]:
+    print(liste_donnees[0])
+    for date in liste_donnees[0]:
         print(date)
         jour = int(date[0:2])
         mois= int(date[3:5])
@@ -57,13 +59,14 @@ def bytes_to_donnees(file_path):
         minutes = int(date[14:16])
         secondes = int(date[17:19])
         dates.append(datetime(année,mois,jour,heure,minutes,secondes))
-    return([dates,tuple_d_t_m[1],tuple_d_t_m[2],tuple_d_t_m[3],tuple_d_t_m[4]])
+    return([dates,liste_donnees[1],liste_donnees[2],liste_donnees[3],liste_donnees[4]])
     
 def Test():
     tuple_date_temp_mat = Matrice_test()
-    # print(tuple_date_temp_mat)
+    liste_effacement = [0 if rd.random() < 0.5 else 1 for k in range(len(tuple_date_temp_mat[0]))]
+    d_init =[[[[rd.random() for k in range(4)]for k in range(len(tuple_date_temp_mat[0]))]for k in range(len(tuple_date_temp_mat[0]))]for k in range(len(tuple_date_temp_mat[0]))]
     dates = tuple_date_temp_mat[0]
     temp = tuple_date_temp_mat[1]
     mat = tuple_date_temp_mat[2]
-    donnees_to_bytes(dates,temp,mat)
-    print(bytes_to_donnees('file_data.dat'))
+    donnees_to_bytes(dates,temp,mat,liste_effacement,d_init)
+    print(bytes_to_donnees('file_data4.dat'))
