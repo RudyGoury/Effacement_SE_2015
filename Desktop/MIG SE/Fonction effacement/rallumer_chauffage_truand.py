@@ -124,50 +124,81 @@ def prevision_temperature(temperature, puissance, tExt, nom_temperature) :
     return(delta_moy + temperature)
 
     
-def prochaines_temperatures1(date) : 
+
+
+def effacement(date, puissance) : 
     date = convert_to_datetime(date)
     data = pd.HDFStore('data_lisse_mod.h5')
+    data2 = pd.HDFStore('data_lisse.h5')
     df = data['Temperatures2']
     df1 = data["General_Clim"]
     df2 = data["Temperature_exterieure"]
+    df3 = data['Temperatures2']
     for k in range(len (df2["date et heure"])) : 
         if df2["date et heure"][k] == date :
-            x = (prevision_temperature(df["T° Bureau Coordination Responsable de Service"][k], df1["Puissance moyenne"][k], df2["T° Exterieure"][k], "T° Bureau Coordination Responsable de Service"))
+            x = (prevision_temperature(df["T° Bureau Coordination Responsable de Service"][k], puissance, df2["T° Exterieure"][k], "T° Bureau Coordination Responsable de Service"))
             df["T° Bureau Coordination Responsable de Service"][k+1] = x
-            x = (prevision_temperature(df["T° Bureau Administration Assistantes de Direction"][k], df1["Puissance moyenne"][k], df2["T° Exterieure"][k], "T° Bureau Administration Assistantes de Direction"))
+            x = (prevision_temperature(df["T° Bureau Administration Assistantes de Direction"][k], puissance, df2["T° Exterieure"][k], "T° Bureau Administration Assistantes de Direction"))
             df["T° Bureau Administration Assistantes de Direction"][k+1] = x
-            x = (prevision_temperature(df["T° Bureau Gestion Financiere Comptable"][k], df1["Puissance moyenne"][k], df2["T° Exterieure"][k], "T° Bureau Gestion Financiere Comptable"))
+            x = (prevision_temperature(df["T° Bureau Gestion Financiere Comptable"][k], puissance,  df2["T° Exterieure"][k], "T° Bureau Gestion Financiere Comptable"))
             df["T° Bureau Gestion Financiere Comptable"][k+1] = x  
-            x = (prevision_temperature(df["T° Bureau Administation Secretariat"][k], df1["Puissance moyenne"][k], df2["T° Exterieure"][k], "T° Bureau Administation Secretariat"))
+            x = (prevision_temperature(df["T° Bureau Administation Secretariat"][k], puissance, df2["T° Exterieure"][k], "T° Bureau Administation Secretariat"))
             df["T° Bureau Administation Secretariat"][k+1] = x  
             data['Temperatures2'] = df
             data.close()
             return "done"
     data.close()
-
-def effacement(date) : 
+ 
+def rallumer_chauffage(date) : 
     date = convert_to_datetime(date)
     data = pd.HDFStore('data_lisse_mod.h5')
+    data2 = pd.HDFStore('data_lisse.h5')
     df = data['Temperatures2']
     df1 = data["General_Clim"]
     df2 = data["Temperature_exterieure"]
+    df3 = data['Temperatures2']
     for k in range(len (df2["date et heure"])) : 
         if df2["date et heure"][k] == date :
-            x = (prevision_temperature(df["T° Bureau Coordination Responsable de Service"][k], 0, df2["T° Exterieure"][k], "T° Bureau Coordination Responsable de Service"))
-            df["T° Bureau Coordination Responsable de Service"][k+1] = x
-            x = (prevision_temperature(df["T° Bureau Administration Assistantes de Direction"][k], 0, df2["T° Exterieure"][k], "T° Bureau Administration Assistantes de Direction"))
-            df["T° Bureau Administration Assistantes de Direction"][k+1] = x
-            x = (prevision_temperature(df["T° Bureau Gestion Financiere Comptable"][k],0,  df2["T° Exterieure"][k], "T° Bureau Gestion Financiere Comptable"))
-            df["T° Bureau Gestion Financiere Comptable"][k+1] = x  
-            x = (prevision_temperature(df["T° Bureau Administation Secretariat"][k], 0, df2["T° Exterieure"][k], "T° Bureau Administation Secretariat"))
-            df["T° Bureau Administation Secretariat"][k+1] = x  
+            s = "T° Bureau Coordination Responsable de Service"
+            x = (prevision_temperature(df[s][k],df1["Puissance moyenne"][k], df2["T° Exterieure"][k], s))
+            y = df3[s][k+1]
+            if abs(x -  y ) > abs(y - df[s][k]) : 
+                df[s][k+1] =  (df[s][k] + y)/2
+            else :                 
+                df[s][k+1] = x
+            
+            s = "T° Bureau Administration Assistantes de Direction"
+            x = (prevision_temperature(df[s][k],df1["Puissance moyenne"][k], df2["T° Exterieure"][k], s))
+            y = df3[s][k+1]
+            if abs(x -  y ) > abs(y - df[s][k]) : 
+                df[s][k+1] =  (df[s][k] + y)/2
+            else :                 
+                df[s][k+1] = x
+                
+            s = "T° Bureau Gestion Financiere Comptable"
+            x = (prevision_temperature(df[s][k],df1["Puissance moyenne"][k], df2["T° Exterieure"][k], s))
+            y = df3[s][k+1]
+            if abs(x -  y ) > abs(y - df[s][k]) : 
+                df[s][k+1] = (df[s][k] + y)/2
+            else :                 
+                df[s][k+1] = x
+                
+            s = "T° Bureau Administation Secretariat"
+            x = (prevision_temperature(df[s][k],df1["Puissance moyenne"][k], df2["T° Exterieure"][k], s))
+            y = df3[s][k+1]
+            if abs(x -  y ) > abs(y - df[s][k]) : 
+                df[s][k+1] =  (df[s][k] + y)/2
+            else :                 
+                df[s][k+1] = x
+            
+            
             data['Temperatures2'] = df
             data.close()
             return "done"
     data.close()
     
 
-def rallumer_chauffage(date) : 
+def rallumer_chauffage_truand(date) : 
     date = convert_to_datetime(date)
     data = pd.HDFStore('data_lisse_mod.h5')
     data2 = pd.HDFStore('data_lisse.h5')
@@ -202,60 +233,4 @@ def rallumer_chauffage(date) :
             data.close()
             return "done"
     data.close()
-
-effacement ("06/06/2015 15:10")
-effacement("06/06/2015 15:20")
-effacement("06/06/2015 15:30")
-effacement("06/06/2015 15:40")
-effacement("06/06/2015 15:50")
-effacement("06/06/2015 16:00")
-
-rallumer_chauffage2("06/06/2015 16:10")
-rallumer_chauffage2("06/06/2015 16:20")
-rallumer_chauffage2("06/06/2015 16:30")
-rallumer_chauffage2("06/06/2015 16:40")
-rallumer_chauffage2("06/06/2015 16:50")
-rallumer_chauffage2("06/06/2015 17:00")
-
-def verification_par_graphe2(date) :
-    data = pd.HDFStore('data_lisse.h5')
-    data1 = pd.HDFStore('data_lisse_mod.h5')
-    df = data['Temperatures2']
-    df1 = data1['Temperatures2']
-
-    for k in range(len (df["date et heure"])) : 
-        if df["date et heure"][k] == convert_to_datetime(date) : 
-            ordonnees = [df["T° Bureau Coordination Responsable de Service"][k+j] for j in range(19)]
-            abscisses = [j for j in range(19)]
-            ordonnees1 = [df1["T° Bureau Coordination Responsable de Service"][k+j] for j in range(19)]
-            plt.plot(abscisses, ordonnees, 'r')
-            plt.plot(abscisses, ordonnees1, 'c')
-            plt.show()
-            ordonnees = [df["T° Bureau Administration Assistantes de Direction"][k+j] for j in range(19)]
-            ordonnees1 = [df1["T° Bureau Administration Assistantes de Direction"][k+j] for j in range(19)]
-            abscisses = [j for j in range(19)]
-            plt.plot(abscisses, ordonnees, 'r')
-            plt.plot(abscisses, ordonnees1, 'c')
-            plt.show()
-            ordonnees = [df["T° Bureau Gestion Financiere Comptable"][k+j] for j in range(19)]
-            abscisses = [j for j in range(19)]
-            ordonnees1 = [df1["T° Bureau Gestion Financiere Comptable"][k+j] for j in range(19)]
-            plt.plot(abscisses, ordonnees, 'r')
-            plt.plot(abscisses, ordonnees1, 'c')
-            plt.show()
-            ordonnees = [df["T° Bureau Administation Secretariat"][k+j] for j in range(19)]
-            abscisses = [j for j in range(19)]
-            ordonnees1 = [df1["T° Bureau Administation Secretariat"][k+j] for j in range(19)]
-            plt.plot(abscisses, ordonnees1, 'c')
-            plt.plot(abscisses, ordonnees, 'r')
-            plt.show()
-            data.close()
-            data1.close()
-            
-            return "yes"
-
-
-verification_par_graphe2("06/06/2015 15:00")
-
-
 

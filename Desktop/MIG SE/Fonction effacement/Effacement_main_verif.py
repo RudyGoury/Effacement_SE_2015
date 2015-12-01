@@ -1,5 +1,3 @@
-import sys
-sys.path.append("C:/Users/Rudy-/Desktop/MIG SE/Fonction effacement")
 import pandas as pd
 from datetime import *
 from Machine_verif import * 
