@@ -18,11 +18,11 @@ def main( origine_de_la_simulation, fin_de_la_simulation, liste_ordres ):
     liste_temperatures_avec_effacement = []
     liste_matrices = []
     
-    conso_chauffage = conso("General_Clim", origine_de_la_simulation, fin_de_la_simulation)																													)
+    conso_chauffage = conso("Clim", origine_de_la_simulation, fin_de_la_simulation)																													)
     conso_max_chauffage  = max(conso_chauffage)  
     chauffage = Machine( "Chauffage", conso_max_chauffage, conso_chauffage[0]/conso_max_chauffage, 0.5, True, 0 )
     
-    conso_bouilleur = conso("Bouilleur_Friteuses_Vaisselle", origine_de_la_simulation, fin_de_la_simulation)																													)
+    conso_bouilleur = conso("Bouilleur", origine_de_la_simulation, fin_de_la_simulation)																													)
     conso_max_bouilleur  = max(conso_bouilleur)  
     bouilleur = Machine( "Bouilleur", conso_max_bouilleur, conso_bouilleur[0]/conso_max_bouilleur, 0.5, True, 0 )
     
@@ -30,7 +30,7 @@ def main( origine_de_la_simulation, fin_de_la_simulation, liste_ordres ):
     conso_max_splash_battle = max(conso_splash_battle)
     splash_battle = Machine( "Splash Battle", conso_max_splash_battle, conso_splash_battle[0]/conso_max_splash_battle, 0.5, True, 0 )
     
-    conso_creperie = conso( "Crèperie_Gaufrier_Rotisoire",origine_de_la_simulation, fin_de_la_simulation )
+    conso_creperie = conso( "Creperie",origine_de_la_simulation, fin_de_la_simulation )
     conso_max_creperie = max(conso_creperie)    
     creperie = Machine( "Creperie", conso_max_creperie, conso_creperie[0]/conso_max_creperie, 0.5, False, 0 )
     
