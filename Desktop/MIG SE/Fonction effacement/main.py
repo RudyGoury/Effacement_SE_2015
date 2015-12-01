@@ -34,6 +34,7 @@ lumiere = Machine( "Lumiere", conso_max_Lumiere, conso_Lumiere[0]/conso_max_Lumi
 
 
 
+
 def main( origine_de_la_simulation, fin_de_la_simulation, liste_ordres ):
     
     #création de la liste [(dates, True ou False)] entre date_debut et date_fin de la simulation, indication les périodes d'effacement sur la liste de tuples liste_dates_simulation
@@ -42,22 +43,13 @@ def main( origine_de_la_simulation, fin_de_la_simulation, liste_ordres ):
         for ordre in liste_ordres:
             if ordres(0)==tuple(0):
                 tuple(1) = True
-                
-            
-            
-            
         
-        
-        
-        if liste_dates_avec_boolens 
-        
-    #renvoyer la liste des températures réelles ci-dessous, indicée comme liste_dates_simulation
-    #liste_temperatures_sans_effacement = 
-    Tint = liste_temperatures_sans_effacement[0]
-    liste_temperatures_avec_effacement = []
     liste_matrices = []
     
-    
+##importation de la liste Tint
+
+liste_temperatures_sans_effacement = []
+liste_temperatures_avec_effacement = liste_temperatures_sans_effacement
 
 
 #----------------------------------------------------
