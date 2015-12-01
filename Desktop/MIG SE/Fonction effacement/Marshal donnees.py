@@ -37,11 +37,11 @@ def datetime_to_str(date_time):
         date+=str(date_time.second)
     return(date)
 
-def donnees_to_bytes(liste_dates,liste_temperatures,matrice):
+def donnees_to_bytes(liste_dates,liste_temperatures,liste_matrices,liste_effacements,d_init):
     liste_dates_str = []
     for date_time in liste_dates:
         liste_dates_str.append(datetime_to_str(date_time))
-    ms.dump((liste_dates_str,liste_temperatures,matrice),open('file_data.dat','ab'))
+    ms.dump([liste_dates_str,liste_temperatures,liste_matrices,d_init],open('file_data.dat','ab'))
 
 def bytes_to_donnees(file_path):
     file_data = open(file_path,'rb')
@@ -57,7 +57,7 @@ def bytes_to_donnees(file_path):
         minutes = int(date[14:16])
         secondes = int(date[17:19])
         dates.append(datetime(année,mois,jour,heure,minutes,secondes))
-    return(dates,tuple_d_t_m[1],tuple_d_t_m[2])
+    return([dates,tuple_d_t_m[1],tuple_d_t_m[2],tuple_d_t_m[3],tuple_d_t_m[4]])
     
 def Test():
     tuple_date_temp_mat = Matrice_test()
