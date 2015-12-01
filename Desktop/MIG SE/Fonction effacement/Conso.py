@@ -29,7 +29,6 @@ def liste_dates(date_debut,date_fin):
 				
 def liste_dates_avec_booleens(date_debut,date_fin):
     list=[(date_debut,False)]
-   
     while (list[-1][0]+datetime.timedelta(0,600,0)) <= date_fin:
         list.append((list[-1][0]+datetime.timedelta(0,600,0), False))
     return(list)

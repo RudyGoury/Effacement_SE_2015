@@ -13,7 +13,7 @@ conso_max_chauffage  = max(conso_chauffage)
 print(conso_max_chauffage)
 chauffage = Machine( "Chauffage", conso_max_chauffage, conso_chauffage[0]/conso_max_chauffage, 0.5, True, 0 )
     
-conso_bouilleur = conso("Bouilleur_Friteuses_Vaisselle", origine_de_la_simulation, fin_de_la_simulation)																					conso_max_bouilleur  = max(conso_bouilleur)  
+conso_bouilleur = conso("Bouilleur_Friteuses_Vaisselle", origine_de_la_simulation, fin_de_la_simulation)	conso_max_bouilleur  = max(conso_bouilleur)  
 bouilleur = Machine( "Bouilleur", conso_max_bouilleur, conso_bouilleur[0]/conso_max_bouilleur, 0.5, True, 0 )
     
 conso_splash_battle = conso( "Splash_Battle", origine_de_la_simulation, fin_de_la_simulation)
@@ -30,16 +30,28 @@ PC_Normal = Machine( "PC_Normal", conso_max_PC_Normal, conso_PC_Normal[0]/conso_
 
 conso_Lumiere = conso("General_Eclairage", origine_de_la_simulation, fin_de_la_simulation)
 conso_max_Lumiere = max(conso_Lumiere)
-Lumiere = Machine( "Lumiere", conso_max_Lumiere, conso_Lumiere[0]/conso_max_Lumiere, 0.5, True, 0 ) 
-
+lumiere = Machine( "Lumiere", conso_max_Lumiere, conso_Lumiere[0]/conso_max_Lumiere, 0.5, True, 0 ) 
 
 
 
 def main( origine_de_la_simulation, fin_de_la_simulation, liste_ordres ):
     
-    #pour chaque date, on dit si elle correspond ou non à une période d'effacement
-    liste_dates_simulation = liste_dates_avec_booleens(origine_de_la_simulation,fin_de_la_simulation)
-    #renvoyer  la liste des températures réelles ci-dessous, indicée comme liste_dates_simulation
+    #création de la liste [(dates, True ou False)] entre date_debut et date_fin de la simulation, indication les périodes d'effacement sur la liste de tuples liste_dates_simulation
+    liste_dates_simulation = liste_dates_avec_booleens(origine_de_la_simulation, fin_de_la_simulation)
+    for (i,tuple) in enumerate(liste_dates_simulation):
+        for ordre in liste_ordres:
+            if ordres(0)==tuple(0):
+                tuple(1) = True
+                
+            
+            
+            
+        
+        
+        
+        if liste_dates_avec_boolens 
+        
+    #renvoyer la liste des températures réelles ci-dessous, indicée comme liste_dates_simulation
     #liste_temperatures_sans_effacement = 
     Tint = liste_temperatures_sans_effacement[0]
     liste_temperatures_avec_effacement = []
@@ -49,12 +61,6 @@ def main( origine_de_la_simulation, fin_de_la_simulation, liste_ordres ):
 
 
 #----------------------------------------------------
-    #indiquer les périodes d'effacement sur la liste de tuples liste_dates_simulation
-    l = []
-    for ordre in liste_ordres:
-        l = l + liste_dates(ordre[0], ordre[0] + dt.timedelta(seconds = 3600) )
-    for (date, booleen) in liste_dates_simulation :
-        booleen = (date in l)
     
     #compléter les listes températures réelles et simulées, y compris en dehors de la période d'effacement
     #et actualiser la gene de chaque machine avant d'appliquer l'algo d'effacement
