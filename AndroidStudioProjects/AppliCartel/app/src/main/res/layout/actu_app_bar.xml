@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Ce fichier représente la toolbar du haut et appelle le corps de la page Fil d'actualités -->
+<!-- Ce fichier représente la toolbar du haut et appelle le corps de la page Actu -->
 
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.marc.applicartel.FilActus">
+    tools:context="com.example.marc.applicartel.ActuActiv">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -23,8 +23,8 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/filactu_content" />    <!-- On inclut ici le fichier filactu_content.xml -->
-        <!-- Proposition : conventions pour la dénomination des fichiers Java et XML -->
+    <include layout="@layout/actu_content" />    <!-- On inclut ici le fichier actu_content.xml -->
+    <!-- Proposition : conventions pour la dénomination des fichiers Java et XML -->
 
 
 </android.support.design.widget.CoordinatorLayout>

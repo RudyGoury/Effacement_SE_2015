@@ -1,9 +1,5 @@
 package com.example.marc.applicartel;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -14,23 +10,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import java.util.HashMap;
-
-import android.widget.ListAdapter;
-import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 
-public class FilActus extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
-    public final static String BLA = "bla";
+public class ActuActiv extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.filactu_activity);
+        setContentView(R.layout.actu_activity);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -42,44 +30,14 @@ public class FilActus extends AppCompatActivity implements NavigationView.OnNavi
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        ListView vueListeActus = (ListView) findViewById(R.id.xlisteActus);
+        Intent i = getIntent();
+        Actu a = i.getParcelableExtra(FilActus.BLA);
 
-        final LinkedList<Actu> lact = new LinkedList<>();
-        lact.add(new Actu("Paris gagne !", "icone.png", "25/04/2016", "17:49", "image.png", "Willy Wonka", "Wow ! Such appli ! \n"+"Much information\tVery heureux\n"));
-        lact.add(new Actu("Lancement de l'application.", "icone.png", "10/03/2016", "14:52", "image.png", "Marc", "Wow ! Such appli ! \n"+"Much information\tVery heureux\n"));
+        TextView titre = (TextView) findViewById(R.id.titreActu);
+        titre.setText(a.titre);
 
-
-        List<HashMap<String, String>> liste = new ArrayList<HashMap<String, String>>();
-
-        HashMap<String, String> element;
-        for (int i = 0;i<lact.size();i++){
-            element = new HashMap<String, String>();
-
-            element.put("titre", lact.get(i).titre );
-
-            element.put("date&heure", "Le "+lact.get(i).date+" à "+lact.get(i).heure+".");
-            liste.add(element);
-        }
-
-        ListAdapter adapter = new SimpleAdapter(this, liste, android.R.layout.simple_list_item_2, new String[]{"titre","date&heure"}, new int[] {android.R.id.text1, android.R.id.text2 });
-        vueListeActus.setAdapter(adapter);
-
-
-
-
-        vueListeActus.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView,
-                                    View view,
-                                    int position,
-                                    long id) {
-                Intent iActuActiv = new Intent(FilActus.this, ActuActiv.class);
-                iActuActiv.putExtra(FilActus.BLA, lact.get(position));
-                // Puis on lance l'intent !
-                startActivity(iActuActiv);
-            }
-        });
-
+        TextView texte = (TextView) findViewById(R.id.texteActu);
+        texte.setText(a.texte);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -124,8 +82,12 @@ public class FilActus extends AppCompatActivity implements NavigationView.OnNavi
         int id = item.getItemId();
 
         if (id == R.id.accueil) {
-            finish();
+            Intent iAccueil = new Intent(ActuActiv.this, Accueil.class);
+            // Puis on lance l'intent !
+            startActivity(iAccueil);
+
         } else if (id == R.id.filactu) {
+            finish();
 
         } else if (id == R.id.nav_gallery) {
 
@@ -143,4 +105,6 @@ public class FilActus extends AppCompatActivity implements NavigationView.OnNavi
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }

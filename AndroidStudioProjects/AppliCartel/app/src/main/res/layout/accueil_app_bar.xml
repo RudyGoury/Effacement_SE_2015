@@ -23,7 +23,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/accueil_content" />    <!-- On inclut ici le fichier content_accueil.xml -->
+    <include layout="@layout/accueil_content" />    <!-- On inclut ici le fichier accueil_content.xml -->
         <!-- Proposition : conventions pour la dénomination des fichiers Java et XML -->
 
 

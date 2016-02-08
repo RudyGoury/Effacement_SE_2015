@@ -23,6 +23,7 @@
     <style name="DescriptionPage">
         <item name="android:textSize">24dp</item>
         <item name="android:textStyle"> bold|italic</item>
+        <item name="android:textColor"> @color/black </item>
     </style>
 
 

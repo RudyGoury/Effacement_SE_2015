@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Ce fichier représente le corps de la page Fil d'actualités -->
+<!-- Ce fichier représente le corps de la page Actu -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -11,21 +11,23 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.marc.applicartel.Accueil"
-    tools:showIn="@layout/filactu_app_bar"
+    tools:context="com.example.marc.applicartel.ActuActiv"
+    tools:showIn="@layout/actu_app_bar"
     android:orientation="vertical">
 
     <TextView
-        android:layout_width="fill_parent"
+        android:id="@+id/titreActu"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Suivez en temps réel l'organisation du Cartel"
-        android:layout_gravity="center_horizontal"
-        style="@style/DescriptionPage" />
+        android:text="Titre !!"
+        style="@style/DescriptionPage"/>
 
-    <ListView
-        android:id="@+id/xlisteActus"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
-    </ListView>
+    <TextView
+        android:id="@+id/texteActu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Regardez moi je suis un texte et je suis seul pour la St Valentin tuez moi"/>
+
+
 
 </LinearLayout>
