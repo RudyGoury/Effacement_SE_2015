@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ce fichier représente la partie basse du drawer -->
+<!-- Ajouter les drawables correspondants aux différents onglets -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="News"
+        android:checkableBehavior="single">
+        <menu>
+
+        <item
+            android:id="@+id/accueil"
+            android:icon="@drawable/iconeaccueil"
+            android:title="Accueil" />
+        <item
+            android:id="@+id/filactu"
+            android:icon="@drawable/iconefilactu"
+            android:title="Actualités" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Images" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Vidéos" />
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Paramètres" />
+        </menu>
+    </item>
+
+    <item android:title="Communiquer">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Partager" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Contact" />
+        </menu>
+    </item>
+
+</menu>
