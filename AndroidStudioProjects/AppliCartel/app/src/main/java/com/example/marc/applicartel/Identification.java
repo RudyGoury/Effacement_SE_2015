@@ -10,14 +10,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-public class Accueil extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+
+public class Identification extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.accueil_activity);
+        setContentView(R.layout.id_activity);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -28,6 +33,24 @@ public class Accueil extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
+
+        final TextView txt = (TextView) findViewById(R.id.eltexto);
+
+        final EditText edt = (EditText) findViewById(R.id.elmdp);
+
+        final Button butt = (Button) findViewById(R.id.elbuton);
+        butt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(edt.getText().toString().equals("fdp")){
+                    finish();
+                }
+                else {
+                    txt.setText("C'est pas ça boloss !");
+                }
+
+            }
+        });
 
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -72,20 +95,19 @@ public class Accueil extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.filactu) {
-            // Le premier paramètre est le nom de l'activité actuelle
-            // Le second est le nom de l'activité de destination
-            Intent ifilActu = new Intent(Accueil.this, FilActus.class);
-            // Puis on lance l'intent !
-            startActivity(ifilActu);
+        if (id == R.id.accueil) {
+            Intent iAccueil = new Intent(Identification.this, Accueil.class);
+            startActivity(iAccueil);
+
+        } else if (id == R.id.filactu) {
+            Intent iFilActus = new Intent(Identification.this, FilActus.class);
+            startActivity(iFilActus);
 
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
-            Intent iIdentification = new Intent(Accueil.this, Identification.class);
-            startActivity(iIdentification);
 
         } else if (id == R.id.nav_share) {
 
@@ -97,4 +119,6 @@ public class Accueil extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }

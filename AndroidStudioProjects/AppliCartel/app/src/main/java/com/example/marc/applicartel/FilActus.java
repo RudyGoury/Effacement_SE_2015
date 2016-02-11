@@ -45,8 +45,25 @@ public class FilActus extends AppCompatActivity implements NavigationView.OnNavi
         ListView vueListeActus = (ListView) findViewById(R.id.xlisteActus);
 
         final LinkedList<Actu> lact = new LinkedList<>();
-        lact.add(new Actu("Paris gagne !", "icone.png", "25/04/2016", "17:49", "image.png", "Willy Wonka", "Wow ! Such appli ! \n"+"Much information\tVery heureux\n"));
-        lact.add(new Actu("Lancement de l'application.", "icone.png", "10/03/2016", "14:52", "image.png", "Marc", "Wow ! Such appli ! \n"+"Much information\tVery heureux\n"));
+        String texteActu;
+        texteActu = "youpi\nwaza\nAlbi c'était vraiment des kikous\n#c'estnouslesmeilleurs\n#bushenkeur\n" +
+                "#bushenkeur\n" +
+                "#bushenkeur\n" +
+                "#bushenkeur\n" +
+                "#bushenkeur\n" +
+                "#bushenkeur\n" +
+                "#bushenkeur\n" +
+                "#bushenkeur\n" +
+                "#bushenkeur\n" +
+                "#bushenkeur\n" +
+                "#bushenkeur\n" +
+                "#bushenkeur\n" +
+                "#bushenkeur\n" +
+                "#bushenkeur\n" +
+                "#bushenkeur";
+        lact.add(new Actu("Paris gagne !", 2, "25/04/2016", "17:49",getResources().getIdentifier("willrunforbeer", "drawable", getPackageName()) , "Willy Wonka", texteActu));
+        texteActu = "on s'est cassé le cul mais ça a l'air de marcher\non verra bien";
+        lact.add(new Actu("Lancement de l'application.",3 , "10/03/2016", "14:52", getResources().getIdentifier("willrunforbeer", "drawable", getPackageName()), "Marc", texteActu));
 
 
         List<HashMap<String, String>> liste = new ArrayList<HashMap<String, String>>();

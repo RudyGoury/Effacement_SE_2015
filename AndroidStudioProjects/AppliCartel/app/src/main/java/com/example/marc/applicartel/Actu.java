@@ -4,6 +4,10 @@ package com.example.marc.applicartel;
 import android.os.Parcelable;
 import android.os.Parcel;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.Scanner;
+
 /**
  * Created by marc on 06/02/16.
  */
@@ -11,23 +15,23 @@ public class Actu implements Parcelable {
 
     // #################  ATTRIBUTS  ##############################
     String titre;
-    String cheminPhotoIcone;
+    int idPhotoIcone;
     String date;
     String heure;
 
-    String cheminPhotoGrande;
+    int idPhotoGrande;
     String auteur;
     String texte;
 
     // ################ CONSTRUCTEUR ################################
 
-    Actu(String titre,String cheminPhotoIcone,String date,String heure,
-         String cheminPhotoGrande,String auteur,String texte){
+    Actu(String titre,int idPhotoIcone,String date,String heure,
+         int idPhotoGrande,String auteur,String texte){
         this.titre = titre;
-        this.cheminPhotoIcone = cheminPhotoIcone;
+        this.idPhotoIcone = idPhotoIcone;
         this.date = date;
         this.heure = heure;
-        this.cheminPhotoGrande = cheminPhotoGrande;
+        this.idPhotoGrande = idPhotoGrande;
         this.auteur = auteur;
         this.texte = texte;
     }
@@ -46,7 +50,7 @@ public class Actu implements Parcelable {
         dest.writeString(titre);
         dest.writeString(date);
         dest.writeString(heure);
-        dest.writeString(cheminPhotoGrande);
+        dest.writeInt(idPhotoGrande);
         dest.writeString(auteur);
         dest.writeString(texte);
     }
@@ -68,7 +72,7 @@ public class Actu implements Parcelable {
         titre = in.readString();
         date = in.readString();
         heure = in.readString();
-        cheminPhotoGrande = in.readString();
+        idPhotoGrande = in.readInt();
         auteur = in.readString();
         texte = in.readString();
     }
