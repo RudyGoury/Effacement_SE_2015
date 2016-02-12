@@ -52,6 +52,17 @@
         </activity>
 
 
+        <activity
+            android:name=".Identification"
+            android:label="Identifiez-vous !"
+            android:theme="@style/AppTheme.NoActionBar"
+
+            android:screenOrientation="portrait"
+            android:configChanges="orientation">
+
+        </activity>
+
+
 
     </application>
 

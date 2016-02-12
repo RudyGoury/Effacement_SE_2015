@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -35,6 +36,12 @@ public class ActuActiv extends AppCompatActivity implements NavigationView.OnNav
 
         TextView titre = (TextView) findViewById(R.id.titreActu);
         titre.setText(a.titre);
+
+        ImageView image = (ImageView) findViewById(R.id.imageActu);
+        image.setImageDrawable(getResources().getDrawable(a.idPhotoGrande));
+
+        TextView intro = (TextView) findViewById(R.id.introActu);
+        intro.setText("Ecrit le "+a.date+" à "+a.heure+" par "+a.auteur+".\n\n");
 
         TextView texte = (TextView) findViewById(R.id.texteActu);
         texte.setText(a.texte);
