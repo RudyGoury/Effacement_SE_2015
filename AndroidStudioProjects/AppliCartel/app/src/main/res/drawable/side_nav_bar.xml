@@ -1,0 +1,10 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:angle="45"
+        android:endColor="#ff8c00"
+        android:startColor="#ff0900"
+        android:type="linear" />
+</shape>
+
+<!-- Dégradé de couleur de la partie haute du drawer -->

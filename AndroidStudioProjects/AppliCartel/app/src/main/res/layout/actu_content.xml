@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ce fichier représente le corps de la page Actu -->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.marc.applicartel.ActuActiv"
+    tools:showIn="@layout/actu_app_bar"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/titreActu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Titre !!"
+            style="@style/DescriptionPage"/>
+
+        <ImageView
+            android:id="@+id/imageActu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/newspaper" />
+
+        <TextView
+            android:id="@+id/introActu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="J'introduis des trucs dans ton anu !"/>
+
+        <TextView
+            android:id="@+id/texteActu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Regardez moi je suis un texte et je suis seul pour la St Valentin tuez moi"/>
+
+
+    </LinearLayout>
+</ScrollView>

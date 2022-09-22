@@ -1,3 +1,5 @@
+import sys
+sys.path.append("C:/Users/Rudy-/Desktop/MIG SE/Fonction effacement")
 class Machine :
         
 	def __init__(self, nom, consoMax, etatActuel, geneMaxTolere, etatContinu, gene) :

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ce fichier représente le corps de la page Identification -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.marc.applicartel.Identification"
+    tools:showIn="@layout/id_app_bar"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/eltexto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Zyva aboul le mot de passe fdp :"
+        style="@style/DescriptionPage"/>
+
+    <EditText
+        android:id="@+id/elmdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="La réponse D ?"/>
+
+    <Button
+        android:id="@+id/elbuton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="C'est mon ultime bafouille !"/>
+
+
+
+</LinearLayout>

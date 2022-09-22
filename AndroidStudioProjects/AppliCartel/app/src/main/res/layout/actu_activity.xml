@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ce fichier appelle tous les éléments constitutifs de la page Actu -->
+
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+    <!-- Ceci définit la page normale, avec toolbar du haut et contenu du milieu -->
+    <include
+        layout="@layout/actu_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" /> <!-- On inclut le fichier actu_app_bar.xml ici -->
+
+    <!-- Ceci définit le drawer -->
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/accueil_nav_header"
+        app:menu="@menu/activity_accueil_drawer" /> <!-- On appelle nav_header_accueil.xml pour décrire graphiquement le header
+                                                         et activity_accueil_drawer.xml pour le drawer
+                                                         (le drawer ne change pas selon les pages) -->
+
+</android.support.v4.widget.DrawerLayout>
+
+

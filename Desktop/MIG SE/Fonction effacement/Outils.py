@@ -87,3 +87,5 @@ def faireMoyenneJour(dataFrame) :
     res.insert(0, max)
     return res
     
+def renvoyerIndiceJournee(d) :
+    return d.hour*6+d.minute//10
